@@ -16,11 +16,11 @@ NTSTATUS DrvUnLoad(PDRIVER_OBJECT pDriver)
 
 NTSTATUS DriverEntry(PDRIVER_OBJECT pDriver, PUNICODE_STRING pPath) 
 {
-	DbgPrint("[+] Driver load Success!\n");
+	
 	pDriver->DriverUnload = DrvUnLoad;
 	SaveGDT();
 	StartVT();
-	DbgPrint("vm-over\n");
+	DbgPrint("[+] Driver load Success!\n");
 	return STATUS_SUCCESS;
 }
 VOID RecoverGDT()
